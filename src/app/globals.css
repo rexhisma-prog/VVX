@@ -1,0 +1,444 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------
+ * Brand tokens
+ * ---------------------------------------------------------------- */
+@theme {
+  --color-brand: #04413c;          /* primary emerald (official) */
+  --color-brand-deep: #022e2a;
+  --color-brand-soft: #0d5a53;
+  --color-brand-tint: #e6eeec;
+  --color-ink: #141c1b;
+  --color-muted: #5d6764;
+  --color-line: #dcd8d0;
+  --color-stone: #f5f3ef;          /* warm light grey */
+  --color-stone-2: #ebe7e0;
+  --color-sand: #c9bfae;           /* warm grey accent */
+  --color-st-available: #2f7a5f;
+  --color-st-reserved: #b8862b;
+  --color-st-sold: #9c4d44;
+
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-cormorant), ui-serif, Georgia, serif;
+
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+:root {
+  /* Hero video overlay — tune intensity here (0.55 – 0.65 recommended). */
+  --hero-overlay-color: 4 65 60; /* #04413C as RGB */
+  --hero-overlay-opacity: 0.6;
+
+  /* floor plan palette */
+  --fp-wall: #1d2725;
+  --fp-living: #fbfaf7;
+  --fp-bed: #f7f4ef;
+  --fp-hall: #efece6;
+  --fp-wet: #eef2f1;
+  --fp-tile-line: #d5dcda;
+  --fp-deck: #f1ede5;
+  --fp-deck-line: #ddd6c9;
+  --fp-core: #e9e6e0;
+  --fp-core-line: #c9c4ba;
+  --fp-furn-stroke: #8d9592;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: #ffffff;
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--color-brand);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-brand-soft);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ------------------------------------------------------------------
+ * Typography helpers
+ * ---------------------------------------------------------------- */
+@utility eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+@utility display {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+}
+
+@utility container-x {
+  width: 100%;
+  margin-inline: auto;
+  max-width: 1360px;
+  padding-inline: 1.25rem;
+  @media (min-width: 768px) {
+    padding-inline: 2.5rem;
+  }
+  @media (min-width: 1280px) {
+    padding-inline: 3.5rem;
+  }
+}
+
+/* ------------------------------------------------------------------
+ * Buttons
+ * ---------------------------------------------------------------- */
+@utility btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  min-height: 3rem;
+  padding: 0.85rem 1.6rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  transition:
+    background-color 0.35s var(--ease-out-soft),
+    color 0.35s var(--ease-out-soft),
+    border-color 0.35s var(--ease-out-soft);
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+/* ------------------------------------------------------------------
+ * Hero entrance animation
+ * ---------------------------------------------------------------- */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes line-grow {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+.anim-rise {
+  opacity: 0;
+  animation: rise 1.1s var(--ease-out-soft) forwards;
+}
+.anim-fade {
+  opacity: 0;
+  animation: fade 1.6s ease forwards;
+}
+.anim-line {
+  transform-origin: left;
+  transform: scaleX(0);
+  animation: line-grow 1.4s var(--ease-out-soft) forwards;
+}
+
+/* scroll reveal (activated by RevealObserver) */
+.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 1s var(--ease-out-soft),
+    transform 1s var(--ease-out-soft);
+}
+.js [data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .js [data-reveal] {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* image hover zoom */
+.zoom-img img {
+  transition: transform 1.4s var(--ease-out-soft);
+}
+.zoom-img:hover img {
+  transform: scale(1.045);
+}
+
+/* ------------------------------------------------------------------
+ * Hero video
+ * ---------------------------------------------------------------- */
+.hero-overlay {
+  background: rgb(var(--hero-overlay-color) / var(--hero-overlay-opacity));
+}
+
+/* ------------------------------------------------------------------
+ * Floor plans (SVG, units in metres)
+ * ---------------------------------------------------------------- */
+.fp {
+  display: block;
+  width: 100%;
+  height: auto;
+  font-family: var(--font-sans);
+  user-select: none;
+}
+.fp-wall {
+  fill: var(--fp-wall);
+}
+.fp-rail {
+  fill: #7c8582;
+}
+.fp-window,
+.fp-window-fill {
+  fill: #fff;
+  stroke: var(--fp-wall);
+  stroke-width: 0.018;
+}
+.fp-window line {
+  stroke: var(--fp-wall);
+  stroke-width: 0.014;
+}
+.fp-leaf {
+  fill: #fff;
+  stroke: var(--fp-wall);
+  stroke-width: 0.014;
+}
+.fp-door {
+  stroke: var(--fp-wall);
+}
+.fp-swing {
+  fill: none;
+  stroke: #7f8885;
+  stroke-width: 0.014;
+}
+.fp-threshold {
+  fill: #fff;
+  stroke: var(--fp-wall);
+  stroke-width: 0.014;
+}
+.fp-furn {
+  fill: #fff;
+  stroke: var(--fp-furn-stroke);
+}
+.fp-furn-faint {
+  opacity: 0.7;
+}
+.fp-furn .fp-dark {
+  fill: #b9bfbd;
+  stroke: none;
+}
+.fp-furn .fp-soft {
+  fill: #f2f1ee;
+}
+.fp-furn .fp-faint {
+  stroke: #c7cccb;
+}
+.fp-furn .fp-table {
+  fill: #f6f3ee;
+}
+.fp-furn .fp-rug {
+  fill: #f3efe8;
+  stroke: #e2dcd1;
+  stroke-dasharray: 0.08 0.06;
+}
+.fp-stair line,
+.fp-stair rect[fill="none"] {
+  stroke: #7c8582;
+  stroke-width: 0.016;
+}
+.fp-arrow {
+  stroke: #3d4745;
+  stroke-width: 0.022;
+}
+.fp-core-box {
+  stroke: var(--fp-wall);
+  stroke-width: 0.05;
+}
+.fp-lift {
+  fill: #fff;
+  stroke: #7c8582;
+  stroke-width: 0.016;
+}
+.fp-faint-line {
+  stroke: #b6bcba;
+  stroke-width: 0.012;
+}
+.fp-labels text {
+  font-family: var(--font-sans);
+}
+.fp-label-bg {
+  fill: rgb(255 255 255 / 0.72);
+}
+.fp-room-name {
+  fill: #3a4442;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+.fp-room-area {
+  fill: var(--color-brand);
+  font-weight: 700;
+}
+.fp-room-dims {
+  fill: #6f7976;
+  font-weight: 500;
+}
+.fp-dim line {
+  stroke: #5c6664;
+  stroke-width: 0.018;
+}
+.fp-dim text {
+  fill: #3a4442;
+  font-weight: 600;
+}
+.fp-north circle {
+  stroke: #3a4442;
+  stroke-width: 0.025;
+}
+.fp-north path {
+  fill: #3a4442;
+}
+.fp-north text {
+  fill: #3a4442;
+  font-weight: 700;
+}
+.fp-scale-a {
+  fill: #3a4442;
+}
+.fp-scale-b {
+  fill: #fff;
+  stroke: #3a4442;
+  stroke-width: 0.02;
+}
+.fp-scale text {
+  fill: #3a4442;
+  font-weight: 600;
+}
+
+/* status tints (floor overview) */
+.fp-tint {
+  transition: opacity 0.25s ease;
+  opacity: 0.14;
+}
+.fp-tint-available {
+  fill: var(--color-st-available);
+}
+.fp-tint-reserved {
+  fill: var(--color-st-reserved);
+}
+.fp-tint-sold {
+  fill: var(--color-st-sold);
+}
+.fp-tint.is-hover {
+  opacity: 0.3;
+}
+.fp-tint.is-selected {
+  fill: var(--color-brand);
+  opacity: 0.3;
+}
+.fp-sel-outline {
+  fill: none;
+  stroke: var(--color-brand);
+  stroke-width: 0.14;
+  pointer-events: none;
+}
+.fp-hit.is-interactive {
+  cursor: pointer;
+  outline: none;
+}
+.fp-hit.is-interactive:focus-visible .fp-tag rect {
+  stroke-width: 0.12;
+}
+.fp-tag rect {
+  fill: #fff;
+  stroke: currentColor;
+  stroke-width: 0.06;
+}
+.fp-tag {
+  color: var(--color-line);
+  pointer-events: none;
+}
+.fp-tag-available {
+  color: var(--color-st-available);
+}
+.fp-tag-reserved {
+  color: var(--color-st-reserved);
+}
+.fp-tag-sold {
+  color: var(--color-st-sold);
+}
+.fp-tag-dot {
+  fill: currentColor;
+}
+.fp-tag-num {
+  fill: var(--color-ink);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+.fp-tag-sub {
+  fill: #5d6764;
+  font-weight: 600;
+}
+.fp-tag.is-selected rect {
+  fill: var(--color-brand);
+  stroke: var(--color-brand);
+}
+.fp-tag.is-selected .fp-tag-num,
+.fp-tag.is-selected .fp-tag-sub {
+  fill: #fff;
+}
+.fp-tag.is-selected .fp-tag-dot {
+  fill: #fff;
+}
+
+/* hide scrollbar for horizontal chip rows */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+@media print {
+  header,
+  footer,
+  .no-print {
+    display: none !important;
+  }
+}
