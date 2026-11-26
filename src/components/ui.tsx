@@ -149,7 +149,7 @@ export function DemoNote({ children, className = "" }: { children?: ReactNode; c
 
 export function ContactCta({
   title = "Le të flasim për shtëpinë tuaj të ardhshme",
-  text = "Na tregoni çfarë kërkoni dhe ekipi ynë do t'ju njoftojë për apartamentet e lira, planimetritë dhe kushtet e pagesës me këste për 5 ose 10 vite, pa kamatë dhe pa garantues.",
+  text = "Na tregoni çfarë kërkoni dhe ekipi ynë do t'ju njoftojë për apartamentet e lira, planimetritë dhe kushtet e pagesës me këste për 5 ose 10 vite, pa kamatë dhe pa nevojë për garantues.",
 }: {
   title?: string;
   text?: string;

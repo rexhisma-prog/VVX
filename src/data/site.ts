@@ -30,10 +30,10 @@ export const nav = [
 /** Payment / financing offer — shown on home, projects, apartments and contact. */
 export const paymentTerms = {
   headline: "Blerje me këste për 5 ose 10 vite",
-  summary: "Pagesë me këste për 5 ose 10 vite, pa kamatë dhe pa garantues.",
+  summary: "Pagesë me këste për 5 ose 10 vite, pa kamatë dhe pa nevojë për garantues.",
   points: [
     { value: "5 ose 10", label: "vite me këste" },
     { value: "0%", label: "kamatë" },
-    { value: "Pa", label: "garantues" },
+    { value: "Pa", label: "garantues në bankë" },
   ],
 };
