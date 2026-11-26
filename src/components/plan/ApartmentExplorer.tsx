@@ -9,6 +9,7 @@ import {
   floorLabel,
   formatArea,
   type Apartment,
+  STATUS_LABEL,
 } from "@/data/apartments";
 import { roomArea } from "@/lib/plan/geometry";
 import { apartmentHref, inquiryHref } from "@/lib/links";
@@ -283,8 +284,12 @@ export default function ApartmentExplorer({ buildingIds, initialBuilding, syncUr
                 <dl className="mt-8 grid grid-cols-3 gap-4 border-t border-line pt-6 text-center">
                   {(["available", "reserved", "sold"] as const).map((s) => (
                     <div key={s}>
-                      <dt>
-                        <StatusBadge status={s} className="text-[0.6rem] text-muted" />
+                      <dt className="flex flex-col items-center gap-1.5 text-[0.58rem] font-semibold uppercase leading-tight tracking-[0.12em] text-muted">
+                        <span
+                          className={`h-2 w-2 rounded-full ${s === "available" ? "bg-st-available" : s === "reserved" ? "bg-st-reserved" : "bg-st-sold"}`}
+                          aria-hidden
+                        />
+                        {STATUS_LABEL[s]}
                       </dt>
                       <dd className="display mt-2 text-3xl">
                         {floorApts.filter((a) => a.status === s).length}

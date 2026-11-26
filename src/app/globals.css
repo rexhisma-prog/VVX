@@ -175,20 +175,18 @@ body {
   animation: line-grow 1.4s var(--ease-out-soft) forwards;
 }
 
-/* scroll reveal (activated by RevealObserver) */
-.js [data-reveal] {
-  opacity: 0;
-  transform: translateY(24px);
-  transition:
-    opacity 1s var(--ease-out-soft),
-    transform 1s var(--ease-out-soft);
-}
-.js [data-reveal].is-visible {
-  opacity: 1;
-  transform: none;
-}
-@media (prefers-reduced-motion: reduce) {
+/* scroll reveal (activated by RevealObserver) — tablets & desktop only.
+   On phones content is always visible: fast swipes can skip the
+   intersection check and leave a section hidden. */
+@media (min-width: 768px) and (prefers-reduced-motion: no-preference) {
   .js [data-reveal] {
+    opacity: 0;
+    transform: translateY(24px);
+    transition:
+      opacity 1s var(--ease-out-soft),
+      transform 1s var(--ease-out-soft);
+  }
+  .js [data-reveal].is-visible {
     opacity: 1;
     transform: none;
   }
