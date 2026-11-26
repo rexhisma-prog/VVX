@@ -12,6 +12,7 @@ import {
 } from "@/data/apartments";
 import { roomArea } from "@/lib/plan/geometry";
 import { apartmentHref, inquiryHref } from "@/lib/links";
+import { paymentTerms } from "@/data/site";
 import FloorPlanSvg from "./FloorPlanSvg";
 import UnitPlanSvg from "./UnitPlanSvg";
 import { Arrow, StatusBadge, StatusLegend } from "../ui";
@@ -367,7 +368,8 @@ function ApartmentPanel({ apartment: a, onClose }: { apartment: Apartment; onClo
             </li>
           ))}
         </ul>
-        <div className="mt-6 grid gap-2">
+        <p className="mt-6 border-l-2 border-brand pl-3 text-sm font-medium text-brand">{paymentTerms.summary}</p>
+        <div className="mt-5 grid gap-2">
           <Link href={apartmentHref(a)} className="btn bg-brand text-white hover:bg-brand-soft">
             Shiko apartamentin <Arrow />
           </Link>

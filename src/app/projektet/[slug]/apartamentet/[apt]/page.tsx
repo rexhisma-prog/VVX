@@ -6,6 +6,7 @@ import PlanViewer from "@/components/plan/PlanViewer";
 import UnitPlanSvg from "@/components/plan/UnitPlanSvg";
 import FloorPlanSvg from "@/components/plan/FloorPlanSvg";
 import PrintButton from "@/components/PrintButton";
+import PaymentTerms from "@/components/PaymentTerms";
 import {
   apartments,
   apartmentsOnFloor,
@@ -167,6 +168,9 @@ export default async function ApartmentPage({ params }: { params: Promise<Params
                   <StatusBadge status={a.status} className="text-muted" />
                   <p className="display mt-3 text-[2.8rem] leading-none">{a.number}</p>
                   <p className="mt-2 text-sm text-muted">Çmimi: sipas kërkesës</p>
+                </div>
+                <div className="border-b border-line p-4">
+                  <PaymentTerms variant="compact" />
                 </div>
                 <dl className="divide-y divide-line px-6">
                   {specs.map(([k, v]) => (

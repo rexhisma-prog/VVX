@@ -20,9 +20,9 @@ Remove that line when a backend (CMS, admin, form API) is added.
 | --- | --- |
 | `/` | Video hero, statement, featured projects, about, why us, floor-plan teaser, architecture showcase, CTA |
 | `/rreth-nesh/` | Company, mission, vision, values, philosophy, quality |
-| `/projektet/` | Portfolio of the 3 demo projects |
+| `/projektet/` | Royal Residence and Royal Residence 2 |
 | `/projektet/[slug]/` | Project detail: specs, galleries, construction details, **interactive floor plans**, apartment types |
-| `/projektet/[slug]/apartamentet/[apt]/` | Apartment detail: large plan with dimensions, room table, key plan, CTA (69 pages) |
+| `/projektet/[slug]/apartamentet/[apt]/` | Apartment detail: large plan with dimensions, room table, key plan, CTA (49 pages) |
 | `/apartamentet/` | Apartment selector across all buildings (building → floor → apartment) |
 | `/galeria/` | Filterable gallery with lightbox |
 | `/kontakti/` | Validated contact form, contact data, WhatsApp, map placeholder |
@@ -80,8 +80,12 @@ from the same video (`public/images/hero-poster.webp`).
 
 ## Demonstration content
 
-The three projects (Rezidenca Lumi, Kompleksi Agimi, Rezidenca Kroi), their apartments, statuses,
-floor plans and specifications are fictional and are labelled as demonstration content on the site.
+The project names **Royal Residence** and **Royal Residence 2** are real. Their descriptions,
+apartments, statuses, floor plans and specifications are still fictional and are labelled as
+demonstration content on the site. (`layouts.ts` also keeps three unused spare layouts, `kroi-c1..c3`.)
+
+Payment terms (5 or 10 years of instalments, no interest, no guarantor) are defined once in
+`paymentTerms` in `src/data/site.ts`.
 No company history, awards, certificates or statistics have been invented.
 
 Photography: demonstration images from Unsplash (Unsplash License), stored locally in

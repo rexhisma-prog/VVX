@@ -23,7 +23,7 @@ export default function ApartmentsPage() {
           { href: "/apartamentet/", label: "Apartamentet" },
         ]}
       >
-        <DemoNote className="text-white/80">Objekte, planimetri dhe statuse demonstruese</DemoNote>
+        <DemoNote className="text-white/80">Planimetri dhe statuse demonstruese</DemoNote>
       </PageHero>
       <section className="py-14 md:py-20">
         <div className="container-x">

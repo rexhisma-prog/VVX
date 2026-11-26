@@ -257,7 +257,7 @@ export default function ContactForm() {
           value={f.apartment}
           onChange={(e) => set("apartment", e.target.value.toUpperCase())}
           className={inputCls("apartment")}
-          placeholder="p.sh. LU-302"
+          placeholder="p.sh. RR-302"
         />
       </div>
       <div className="sm:col-span-2">

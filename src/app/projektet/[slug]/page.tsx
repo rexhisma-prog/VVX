@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Gallery from "@/components/Gallery";
+import PaymentTerms from "@/components/PaymentTerms";
+import { paymentTerms } from "@/data/site";
 import { Arrow, ContactCta, DemoNote, PageHero, SectionIntro } from "@/components/ui";
 import ApartmentExplorer from "@/components/plan/ApartmentExplorer";
 import { apartmentHref } from "@/lib/links";
@@ -90,6 +92,8 @@ export default async function ProjectPage({ params }: { params: Promise<Params> 
         </dl>
       </section>
 
+      <PaymentTerms />
+
       {/* intro + specs */}
       <section className="py-20 md:py-28">
         <div className="container-x grid gap-14 lg:grid-cols-12">
@@ -102,13 +106,13 @@ export default async function ProjectPage({ params }: { params: Promise<Params> 
               ))}
             </SectionIntro>
             <DemoNote className="mt-8 text-muted">
-              Projekt demonstrues · të dhënat do të zëvendësohen me informacionin real
+              Të dhëna teknike demonstruese · do të zëvendësohen me informacionin real
             </DemoNote>
           </div>
           <div className="lg:col-span-5 lg:col-start-8" data-reveal>
             <h3 className="eyebrow text-brand">Specifikimet e objektit</h3>
             <dl className="mt-6 divide-y divide-line border-y border-line">
-              {[{ label: "Lokacioni", value: p.location }, ...p.specs].map((s) => (
+              {[{ label: "Lokacioni", value: p.location }, ...p.specs, { label: "Pagesa", value: paymentTerms.summary }].map((s) => (
                 <div key={s.label} className="grid grid-cols-[10rem_1fr] gap-4 py-4 text-sm">
                   <dt className="text-muted">{s.label}</dt>
                   <dd className="font-medium">{s.value}</dd>

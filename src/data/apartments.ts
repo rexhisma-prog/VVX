@@ -9,9 +9,9 @@ import { balconyArea, interiorArea } from "@/lib/plan/geometry";
 import type { UnitLayout } from "@/lib/plan/types";
 
 export interface Apartment {
-  /** e.g. "LU-302" */
+  /** e.g. "RR-302" */
   number: string;
-  /** URL segment, e.g. "lu-302" */
+  /** URL segment, e.g. "rr-302" */
   slug: string;
   buildingId: string;
   projectSlug: string;

@@ -8,22 +8,17 @@
 export type ApartmentStatus = "available" | "reserved" | "sold";
 
 export const apartmentStatus: Record<string, ApartmentStatus> = {
-  // LU
-  "LU-101": "reserved", "LU-102": "sold", "LU-103": "available", "LU-104": "sold", "LU-105": "available",
-  "LU-201": "reserved", "LU-202": "sold", "LU-203": "available", "LU-204": "sold", "LU-205": "reserved",
-  "LU-301": "sold", "LU-302": "sold", "LU-303": "available", "LU-304": "available", "LU-305": "sold",
-  "LU-401": "reserved", "LU-402": "available", "LU-403": "available", "LU-404": "available", "LU-405": "available",
-  "LU-501": "available", "LU-502": "sold", "LU-503": "available", "LU-504": "reserved", "LU-505": "reserved",
-  // AG
-  "AG-101": "sold", "AG-102": "reserved", "AG-103": "available", "AG-104": "sold",
-  "AG-201": "available", "AG-202": "available", "AG-203": "reserved", "AG-204": "available",
-  "AG-301": "sold", "AG-302": "sold", "AG-303": "reserved", "AG-304": "available",
-  "AG-401": "available", "AG-402": "reserved", "AG-403": "available", "AG-404": "available",
-  "AG-501": "reserved", "AG-502": "available", "AG-503": "available", "AG-504": "reserved",
-  "AG-601": "available", "AG-602": "available", "AG-603": "available", "AG-604": "available",
-  // KR
-  "KR-101": "available", "KR-102": "available", "KR-103": "reserved", "KR-104": "available", "KR-105": "available",
-  "KR-201": "reserved", "KR-202": "available", "KR-203": "sold", "KR-204": "available", "KR-205": "available",
-  "KR-301": "available", "KR-302": "available", "KR-303": "available", "KR-304": "available", "KR-305": "available",
-  "KR-401": "available", "KR-402": "available", "KR-403": "available", "KR-404": "available", "KR-405": "available",
+  // Royal Residence
+  "RR-101": "reserved", "RR-102": "sold", "RR-103": "available", "RR-104": "sold", "RR-105": "available",
+  "RR-201": "reserved", "RR-202": "sold", "RR-203": "available", "RR-204": "sold", "RR-205": "reserved",
+  "RR-301": "sold", "RR-302": "sold", "RR-303": "available", "RR-304": "available", "RR-305": "sold",
+  "RR-401": "reserved", "RR-402": "available", "RR-403": "available", "RR-404": "available", "RR-405": "available",
+  "RR-501": "available", "RR-502": "sold", "RR-503": "available", "RR-504": "reserved", "RR-505": "reserved",
+  // Royal Residence 2
+  "RR2-101": "sold", "RR2-102": "reserved", "RR2-103": "available", "RR2-104": "sold",
+  "RR2-201": "available", "RR2-202": "available", "RR2-203": "reserved", "RR2-204": "available",
+  "RR2-301": "sold", "RR2-302": "sold", "RR2-303": "reserved", "RR2-304": "available",
+  "RR2-401": "available", "RR2-402": "reserved", "RR2-403": "available", "RR2-404": "available",
+  "RR2-501": "reserved", "RR2-502": "available", "RR2-503": "available", "RR2-504": "reserved",
+  "RR2-601": "available", "RR2-602": "available", "RR2-603": "available", "RR2-604": "available",
 };

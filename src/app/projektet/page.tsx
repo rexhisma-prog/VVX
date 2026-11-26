@@ -50,7 +50,7 @@ export default function ProjectsPage() {
                     <span className="bg-brand px-3 py-1.5 text-[0.64rem] font-semibold uppercase tracking-[0.18em] text-white">
                       {PROJECT_STATUS_LABEL[p.status]}
                     </span>
-                    <DemoNote className="text-muted" />
+                    <DemoNote className="text-muted">Të dhëna demonstruese</DemoNote>
                   </div>
                   <p className="mt-6 text-xs uppercase tracking-[0.18em] text-muted">{p.location}</p>
                   <h2 className="display mt-3 text-[2.8rem] md:text-[3.6rem]">{p.name}</h2>

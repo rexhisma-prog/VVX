@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import HeroVideo from "@/components/HeroVideo";
 import { Arrow, ContactCta, SectionIntro } from "@/components/ui";
+import PaymentTerms from "@/components/PaymentTerms";
+import { paymentTerms } from "@/data/site";
 import FloorPlanSvg from "@/components/plan/FloorPlanSvg";
 import { projects, PROJECT_STATUS_LABEL } from "@/data/projects";
 import { img } from "@/data/images";
@@ -32,7 +34,7 @@ const pillars = [
 ];
 
 export default function Home() {
-  const lumi = getBuilding("lumi")!;
+  const royal = getBuilding("royal-1")!;
   const available = apartments.filter((a) => a.status === "available").length;
 
   return (
@@ -65,6 +67,9 @@ export default function Home() {
                 Na Kontakto
               </Link>
             </div>
+            <p className="anim-rise mt-8 inline-flex items-center gap-3 border-l-2 border-white/60 pl-4 text-sm font-semibold text-white/90 [animation-delay:600ms]">
+              {paymentTerms.summary}
+            </p>
           </div>
         </div>
 
@@ -75,6 +80,8 @@ export default function Home() {
           </span>
         </div>
       </section>
+
+      <PaymentTerms />
 
       {/* ============ STATEMENT ============ */}
       <section className="bg-white py-24 md:py-36">
@@ -91,7 +98,7 @@ export default function Home() {
             <div className="mt-12 grid gap-8 border-t border-line pt-10 sm:grid-cols-3" data-reveal>
               <div>
                 <p className="display text-5xl text-brand">{projects.length}</p>
-                <p className="mt-2 text-sm text-muted">projekte demonstruese të prezantuara</p>
+                <p className="mt-2 text-sm text-muted">komplekse rezidenciale</p>
               </div>
               <div>
                 <p className="display text-5xl text-brand">{apartments.length}</p>
@@ -111,24 +118,24 @@ export default function Home() {
         <div className="container-x">
           <div className="flex flex-col justify-between gap-8 md:flex-row md:items-end">
             <SectionIntro eyebrow="Projektet" title={<span id="projects-title">Objekte banimi me karakter</span>}>
-              Tre projekte demonstruese që tregojnë si VVX Construction prezanton objektet, apartamentet dhe
-              planimetritë e saj.
+              Royal Residence dhe Royal Residence 2 — komplekse banimi me apartamente 1+1, 2+1 dhe 3+1,
+              me planimetri për çdo kat.
             </SectionIntro>
             <Link href="/projektet/" className="btn shrink-0 border-brand/30 text-brand hover:border-brand" data-reveal>
               Të gjitha projektet <Arrow />
             </Link>
           </div>
 
-          <div className="mt-16 grid gap-12 md:grid-cols-3 md:gap-8">
+          <div className="mt-16 grid gap-12 md:grid-cols-2 md:gap-10">
             {projects.map((p, i) => (
               <article key={p.slug} className={i === 1 ? "md:mt-20" : ""} data-reveal>
                 <Link href={`/projektet/${p.slug}/`} className="group block">
-                  <div className="zoom-img relative aspect-[4/5] overflow-hidden bg-stone-2">
+                  <div className="zoom-img relative aspect-[4/5] overflow-hidden bg-stone-2 md:aspect-[5/4]">
                     <Image
                       src={p.hero.src}
                       alt={p.hero.alt}
                       fill
-                      sizes="(min-width: 768px) 33vw, 100vw"
+                      sizes="(min-width: 768px) 50vw, 100vw"
                       className="object-cover"
                     />
                     <span className="absolute left-4 top-4 bg-white/95 px-3 py-1.5 text-[0.64rem] font-semibold uppercase tracking-[0.18em] text-brand">
@@ -235,9 +242,9 @@ export default function Home() {
             aria-label="Hap përzgjedhësin e apartamenteve"
             data-reveal
           >
-            <FloorPlanSvg building={lumi} apartments={apartmentsOnFloor("lumi", 3)} id="home-teaser" selected="LU-303" />
+            <FloorPlanSvg building={royal} apartments={apartmentsOnFloor("royal-1", 3)} id="home-teaser" selected="RR-303" />
             <p className="mt-3 flex items-center justify-between px-1 text-xs text-muted">
-              <span>Rezidenca Lumi · Kati 3</span>
+              <span>Royal Residence · Kati 3</span>
               <span className="inline-flex items-center gap-2 font-semibold uppercase tracking-[0.18em] text-brand">
                 Hap planimetrinë <Arrow className="h-3 w-5 transition-transform group-hover:translate-x-1" />
               </span>

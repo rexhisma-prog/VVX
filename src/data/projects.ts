@@ -1,9 +1,9 @@
 /**
- * DEMONSTRATION PROJECTS
- * ----------------------
- * All three projects are fictional and exist only to present how
- * VVX Construction could showcase its real developments. Replace names,
- * texts, images and specifications with real data when available.
+ * PROJECTS
+ * --------
+ * Project names are real (Royal Residence, Royal Residence 2). Descriptions,
+ * specifications, apartment layouts and statuses are still demonstration
+ * content — replace them with the client's real data when available.
  */
 import { img, type SiteImage } from "./images";
 
@@ -43,9 +43,9 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    slug: "rezidenca-lumi",
-    buildingId: "lumi",
-    name: "Rezidenca Lumi",
+    slug: "royal-residence",
+    buildingId: "royal-1",
+    name: "Royal Residence",
     tagline: "Banim i qetë me oborr të brendshëm të gjelbëruar",
     location: "Gjakovë · lokacion demonstrues",
     status: "construction",
@@ -55,7 +55,7 @@ export const projects: Project[] = [
     excerpt:
       "Objekt banimi me pesë kate rezidenciale, oborr të brendshëm dhe apartamente me ballkone të gjera në fasadën kryesore.",
     intro: [
-      "Rezidenca Lumi është projektuar si një objekt banimi me shkallë njerëzore: pesë kate rezidenciale mbi një përdhesë me hapësira afariste, të organizuara rreth një oborri të brendshëm të gjelbëruar.",
+      "Royal Residence është projektuar si një objekt banimi me shkallë njerëzore: pesë kate rezidenciale mbi një përdhesë me hapësira afariste, të organizuara rreth një oborri të brendshëm të gjelbëruar.",
       "Apartamentet janë të orientuara drejt dritës natyrore. Çdo njësi ka ballkon në fasadën kryesore, ndërsa ndarja e qartë mes zonës së ditës dhe zonës së natës e bën jetesën të rehatshme për çifte dhe familje.",
     ],
     hero: img.extLumi,
@@ -90,9 +90,9 @@ export const projects: Project[] = [
     highlights: ["Oborr i brendshëm", "Ballkone në çdo apartament", "Garazh nëntokësor"],
   },
   {
-    slug: "kompleksi-agimi",
-    buildingId: "agimi",
-    name: "Kompleksi Agimi",
+    slug: "royal-residence-2",
+    buildingId: "royal-2",
+    name: "Royal Residence 2",
     tagline: "Arkitekturë e pastër, hapësira të ndriçuara",
     location: "Gjakovë · lokacion demonstrues",
     status: "selling",
@@ -102,7 +102,7 @@ export const projects: Project[] = [
     excerpt:
       "Objekt kompakt me katër apartamente për kat, ku secili apartament ka të paktën dy fasada dhe ballkon të vazhdueshëm.",
     intro: [
-      "Kompleksi Agimi ndjek një koncept të thjeshtë: më pak apartamente për kat dhe më shumë dritë për secilin prej tyre. Me katër njësi për kat, çdo apartament ka pozitë këndore dhe ajrosje nga dy anë.",
+      "Royal Residence 2 ndjek një koncept të thjeshtë: më pak apartamente për kat dhe më shumë dritë për secilin prej tyre. Me katër njësi për kat, çdo apartament ka pozitë këndore dhe ajrosje nga dy anë.",
       "Fasada e bardhë me ballkone të shkallëzuara krijon hije natyrore gjatë verës dhe një siluetë të qetë e bashkëkohore në lagje.",
     ],
     hero: img.extPark,
@@ -135,53 +135,6 @@ export const projects: Project[] = [
       },
     ],
     highlights: ["4 apartamente për kat", "Ajrosje nga dy anë", "Ballkone të thella"],
-  },
-  {
-    slug: "rezidenca-kroi",
-    buildingId: "kroi",
-    name: "Rezidenca Kroi",
-    tagline: "Fasadë e errët, interier i ngrohtë",
-    location: "Gjakovë · lokacion demonstrues",
-    status: "planning",
-    floorsLabel: "P + 4",
-    floorsCount: 5,
-    apartmentsCount: 20,
-    excerpt:
-      "Objekt urban me fasadë të errët dhe hapje të mëdha xhami. Apartamente funksionale me korridore të qarta dhe hapësira shërbimi.",
-    intro: [
-      "Rezidenca Kroi është menduar për një parcelë urbane ku fasada duhet të jetë njëkohësisht e qetë dhe me karakter. Veshja e errët dhe dritaret e mëdha krijojnë kontrast të fortë me interierin e ngrohtë.",
-      "Çdo apartament ka korridor të qartë që ndan zonën e ditës nga dhomat e gjumit, si dhe hapësira të veçanta për lavanderi dhe depo.",
-    ],
-    hero: img.extUra,
-    exterior: [img.extUra, img.extFacadeDark, img.extBalconies, img.consPlans],
-    interior: [img.intLiving4, img.intKitchen3, img.intBedroom3, img.intBath2, img.intDining, img.intLiving2],
-    specs: [
-      { label: "Kate", value: "Përdhesë + 4 kate banimi" },
-      { label: "Apartamente", value: "20 njësi (1+1, 2+1, 3+1)" },
-      { label: "Sipërfaqet", value: "61 – 101 m²" },
-      { label: "Përdhesa", value: "Hyrje, depo dhe hapësira teknike" },
-      { label: "Parkimi", value: "Garazh nëntokësor" },
-      { label: "Qarkullimi vertikal", value: "Shkallë dhe ashensor" },
-    ],
-    construction: [
-      {
-        title: "Struktura",
-        text: "Skelet betoni i armuar me hapësira strukturore që lejojnë fleksibilitet në organizimin e apartamenteve.",
-      },
-      {
-        title: "Fasada",
-        text: "Veshje e ventiluar me panele të errëta dhe korniza të theksuara rreth dritareve.",
-      },
-      {
-        title: "Energjia",
-        text: "Projektim i orientuar drejt efiçiencës: izolim i plotë, dritare me performancë të lartë dhe ndriçim LED në hapësirat e përbashkëta.",
-      },
-      {
-        title: "Përfundimet",
-        text: "Dysheme me parket në dhomat e ndenjjes dhe të gjumit, pllaka qeramike me format të madh në banjo.",
-      },
-    ],
-    highlights: ["Fasadë e ventiluar", "Lavanderi në çdo apartament", "Korridore të qarta"],
   },
 ];
 

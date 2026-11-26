@@ -24,7 +24,7 @@ export interface UnitSlot {
 export interface Building {
   id: string;
   projectSlug: string;
-  /** short code used in apartment numbers, e.g. "LU" → LU-302 */
+  /** short code used in apartment numbers, e.g. "RR" → RR-302 */
   code: string;
   name: string;
   /** residential floors (1 = first floor above the ground floor) */
@@ -42,10 +42,10 @@ export interface Building {
 
 export const buildings: Building[] = [
   {
-    id: "lumi",
-    projectSlug: "rezidenca-lumi",
-    code: "LU",
-    name: "Rezidenca Lumi",
+    id: "royal-1",
+    projectSlug: "royal-residence",
+    code: "RR",
+    name: "Royal Residence",
     floors: [1, 2, 3, 4, 5],
     plate: { width: 29.6, northDepth: 7.6, corridor: 1.8, southDepth: 8.4 },
     core: { x: 12.4, w: 4.8 },
@@ -58,10 +58,10 @@ export const buildings: Building[] = [
     ],
   },
   {
-    id: "agimi",
-    projectSlug: "kompleksi-agimi",
-    code: "AG",
-    name: "Kompleksi Agimi",
+    id: "royal-2",
+    projectSlug: "royal-residence-2",
+    code: "RR2",
+    name: "Royal Residence 2",
     floors: [1, 2, 3, 4, 5, 6],
     plate: { width: 24.0, northDepth: 8.0, corridor: 1.8, southDepth: 7.6 },
     core: { x: 9.2, w: 5.6 },
@@ -70,22 +70,6 @@ export const buildings: Building[] = [
       { slot: "02", layoutId: "agimi-b2", x: 13.0, y: 0, mirrorX: true },
       { slot: "03", layoutId: "agimi-b1", x: 0, y: 9.8, mirrorY: true },
       { slot: "04", layoutId: "agimi-b1", x: 14.8, y: 9.8, mirrorX: true, mirrorY: true },
-    ],
-  },
-  {
-    id: "kroi",
-    projectSlug: "rezidenca-kroi",
-    code: "KR",
-    name: "Rezidenca Kroi",
-    floors: [1, 2, 3, 4],
-    plate: { width: 29.0, northDepth: 7.8, corridor: 1.8, southDepth: 8.6 },
-    core: { x: 11.7, w: 5.6 },
-    slots: [
-      { slot: "01", layoutId: "kroi-c2", x: 0, y: 0 },
-      { slot: "02", layoutId: "kroi-c1", x: 10.6, y: 0 },
-      { slot: "03", layoutId: "kroi-c2", x: 18.4, y: 0, mirrorX: true },
-      { slot: "04", layoutId: "kroi-c3", x: 0, y: 9.6, mirrorY: true },
-      { slot: "05", layoutId: "kroi-c3", x: 17.3, y: 9.6, mirrorX: true, mirrorY: true },
     ],
   },
 ];
